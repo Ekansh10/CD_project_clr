@@ -1,6 +1,8 @@
 ## Commands to run
 cd CLR-Parser
+
 pip install -r requirements.txt
+
 python server.py
 
 # CLR Parser Web Application - Technical Documentation
