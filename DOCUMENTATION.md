@@ -1,10 +1,11 @@
 ## Commands to run
+```cmd
 cd CLR-Parser
 
 pip install -r requirements.txt
 
 python server.py
-
+```
 # CLR Parser Web Application - Technical Documentation
 
 This document provides a comprehensive explanation of the CLR(1) Parser web application, including details about the parser implementation, the web interface, and the interaction between them.
