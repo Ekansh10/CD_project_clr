@@ -399,14 +399,12 @@ By combining a powerful parser implementation with a user-friendly interface, th
 ## Sample Grammars to test
 
 S->E
+
 E->E+E
+
 E->E*E
+
 E->(E)
+
 E->a
 
-
-S->Aa
-S->Bb
-A->C
-B->C
-C->
