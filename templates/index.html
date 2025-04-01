@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLR Parser</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h1>CLR(1) Parser</h1>
+                <p class="lead">Enter a grammar and input string to parse</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Grammar Input</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="grammar-input" class="form-label">Enter grammar productions (one per line)</label>
+                            <textarea class="form-control" id="grammar-input" rows="6" placeholder="Example:
+S->CC
+C->cC
+C->d"></textarea>
+                            <small class="form-text text-muted">Format: "A->Y1Y2..Yn" (Yi - single char) OR "A->" (epsilon)</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="string-input" class="form-label">Input string to parse</label>
+                            <input type="text" class="form-control" id="string-input" placeholder="cdcd">
+                        </div>
+                        <button id="parse-btn" class="btn btn-primary">Parse</button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>Result</h5>
+                        <div class="result-status"></div>
+                    </div>
+                    <div class="card-body">
+                        <div id="loading" class="text-center d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p>Processing...</p>
+                        </div>
+                        <div id="result-panel">
+                            <ul class="nav nav-tabs" id="resultTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="symbols-tab" data-bs-toggle="tab" data-bs-target="#symbols" type="button" role="tab">Symbols</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="first-follow-tab" data-bs-toggle="tab" data-bs-target="#first-follow" type="button" role="tab">First/Follow</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="parse-table-tab" data-bs-toggle="tab" data-bs-target="#parse-table" type="button" role="tab">Parse Table</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="parsing-steps-tab" data-bs-toggle="tab" data-bs-target="#parsing-steps" type="button" role="tab">Steps</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content p-3" id="resultTabsContent">
+                                <div class="tab-pane fade show active" id="symbols" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Non-terminals</h6>
+                                            <div id="non-terminals"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Terminals</h6>
+                                            <div id="terminals"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="first-follow" role="tabpanel">
+                                    <div id="first-follow-sets"></div>
+                                </div>
+                                <div class="tab-pane fade" id="parse-table" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table id="parsing-table" class="table table-sm table-bordered">
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="parsing-steps" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table id="steps-table" class="table table-sm">
+                                            <thead>
+                                                <!-- Table header will be generated dynamically in JavaScript -->
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Conflicts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="conflicts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html> 

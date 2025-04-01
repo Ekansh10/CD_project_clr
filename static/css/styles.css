@@ -1,0 +1,268 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: #f1f5f9;
+}
+
+/* Status indicator */
+.result-status .badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+}
+
+/* Table styles */
+#parsing-table {
+    font-size: 0.85rem;
+}
+
+#parsing-table th {
+    background-color: #e9ecef;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-responsive {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* First/Follow styles */
+.first-follow-item {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.first-follow-item h6 {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.set-item {
+    display: inline-block;
+    margin-right: 0.3rem;
+    padding: 0.1rem 0.4rem;
+    background-color: #e9ecef;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Symbol display */
+.symbol-badge {
+    display: inline-block;
+    margin: 0.2rem;
+    padding: 0.3rem 0.5rem;
+    background-color: #e9ecef;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Parse steps highlight */
+.current-step {
+    background-color: #cfe2ff !important;
+}
+
+/* Table cell styling for parse table */
+.action-cell {
+    font-family: monospace;
+    text-align: center;
+}
+
+.shift-action {
+    color: #198754; /* green */
+}
+
+.reduce-action {
+    color: #dc3545; /* red */
+}
+
+.goto-action {
+    color: #0d6efd; /* blue */
+}
+
+.accept-action {
+    font-weight: bold;
+    color: #6610f2; /* purple */
+}
+
+/* Conflicts display */
+#conflicts .conflict-item {
+    margin-bottom: 0.5rem;
+}
+
+.conflict-badge {
+    font-weight: bold;
+}
+
+.sr-conflict {
+    color: #dc3545;
+}
+
+.rr-conflict {
+    color: #fd7e14;
+}
+
+/* Loading spinner overlay */
+#loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Result Popup Styles */
+.result-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: slide-up 0.3s ease-out;
+    overflow: hidden;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.result-popup.accepted .popup-header {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.result-popup.rejected .popup-header {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.popup-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.result-popup.accepted .popup-icon {
+    background-color: #0f5132;
+    color: white;
+}
+
+.result-popup.rejected .popup-icon {
+    background-color: #842029;
+    color: white;
+}
+
+.popup-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.popup-body {
+    padding: 1rem;
+}
+
+.popup-body p {
+    margin-bottom: 0.5rem;
+}
+
+.popup-close-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.result-popup.accepted .popup-close-btn {
+    background-color: #198754;
+}
+
+.result-popup.rejected .popup-close-btn {
+    background-color: #dc3545;
+}
+
+.popup-close-btn:hover {
+    opacity: 0.9;
+}
+
+/* Action labels in parsing steps */
+.action-label {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.action-label.shift {
+    background-color: #cff4fc;
+    color: #055160;
+}
+
+.action-label.reduce {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.action-label.accept {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.action-label.reject {
+    background-color: #f8d7da;
+    color: #842029;
+} 
