@@ -1,6 +1,6 @@
 ## Commands to run
 ```cmd
-cd CLR-Parser
+cd CD_project_clr
 
 pip install -r requirements.txt
 
